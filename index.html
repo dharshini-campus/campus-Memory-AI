@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Campus Memory AI</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- =========================
+         NAVIGATION BAR
+    ========================== -->
+
+    <header class="navbar">
+
+        <div
+            class="brand"
+            onclick="goHome()"
+        >
+
+            <div class="brand-icon">
+                🎓
+            </div>
+
+            <div>
+
+                <div class="brand-name">
+                    Campus <span>Memory AI</span>
+                </div>
+
+                <div class="brand-tagline">
+                    Learn • Analyze • Innovate
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <nav class="nav-links">
+
+            <button
+                onclick="goHome()"
+                class="nav-button active"
+            >
+                🏠 Home
+            </button>
+
+
+            <button
+                onclick="exploreProjects()"
+                class="nav-button"
+            >
+                📚 Previous Projects
+            </button>
+
+
+            <button
+                onclick="askCampusAI()"
+                class="nav-button"
+            >
+                🤖 Campus AI
+            </button>
+
+
+            <button
+                onclick="adminLogin()"
+                class="nav-button"
+            >
+                👨‍💼 Admin Login
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
+
+    <main>
+
+        <section class="hero-section">
+
+            <div class="hero-content">
+
+                <div class="hero-small-title">
+                    YOUR CAMPUS • OUR KNOWLEDGE • SMARTER IDEAS
+                </div>
+
+
+                <h1>
+
+                    Welcome to
+
+                    <br>
+
+                    Campus
+                    <span>Memory AI</span>
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    Explore previous engineering projects,
+                    understand their limitations,
+                    and discover new ideas with AI.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <button
+                        class="primary-button"
+                        onclick="exploreProjects()"
+                    >
+                        📚 Explore Projects
+                    </button>
+
+
+                    <button
+                        class="secondary-button"
+                        onclick="askCampusAI()"
+                    >
+                        🤖 Ask Campus AI
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- AI VISUAL -->
+
+            <div class="hero-visual">
+
+                <div class="ai-orbit orbit-one"></div>
+
+                <div class="ai-orbit orbit-two"></div>
+
+                <div class="ai-core">
+
+                    <div class="brain-icon">
+                        🧠
+                    </div>
+
+                </div>
+
+
+                <div class="floating-icon icon-book">
+                    📖
+                </div>
+
+                <div class="floating-icon icon-bulb">
+                    💡
+                </div>
+
+                <div class="floating-icon icon-gear">
+                    ⚙️
+                </div>
+
+                <div class="floating-icon icon-ai">
+                    🤖
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FEATURE CARDS
+        ========================== -->
+
+        <section class="features-section">
+
+            <div class="feature-card project-card">
+
+                <div class="feature-icon">
+                    📚
+                </div>
+
+
+                <h2>
+                    Explore Previous Projects
+                </h2>
+
+
+                <p>
+
+                    Browse previous student projects,
+                    understand their objectives,
+                    technology, working,
+                    limitations and improvements.
+
+                </p>
+
+
+                <button
+                    onclick="exploreProjects()"
+                    class="card-button blue-button"
+                >
+                    View Projects →
+                </button>
+
+            </div>
+
+
+            <div class="feature-card ai-card">
+
+                <div class="feature-icon">
+                    🤖
+                </div>
+
+
+                <h2>
+                    Campus AI
+                </h2>
+
+
+                <p>
+
+                    Ask questions about projects,
+                    technologies, limitations and
+                    possible improvements using AI.
+
+                </p>
+
+
+                <button
+                    onclick="askCampusAI()"
+                    class="card-button green-button"
+                >
+                    Ask Campus AI →
+                </button>
+
+            </div>
+
+
+            <div class="feature-card admin-card">
+
+                <div class="feature-icon">
+                    👨‍💼
+                </div>
+
+
+                <h2>
+                    Admin Portal
+                </h2>
+
+
+                <p>
+
+                    Faculty can add new projects,
+                    update project reports,
+                    manage existing projects
+                    and maintain campus knowledge.
+
+                </p>
+
+
+                <button
+                    onclick="adminLogin()"
+                    class="card-button purple-button"
+                >
+                    Admin Login →
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             HOW IT WORKS
+        ========================== -->
+
+        <section class="how-section">
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    HOW IT WORKS
+                </div>
+
+                <h2>
+                    From Previous Work
+                    <span>to New Ideas</span>
+                </h2>
+
+                <p>
+                    Campus Memory AI helps students
+                    learn from existing projects instead
+                    of starting from zero.
+                </p>
+
+            </div>
+
+
+            <div class="process-container">
+
+                <div class="process-item">
+
+                    <div class="process-number">
+                        01
+                    </div>
+
+                    <div class="process-icon">
+                        📂
+                    </div>
+
+                    <h3>
+                        Remember
+                    </h3>
+
+                    <p>
+                        Store and explore previous
+                        campus projects.
+                    </p>
+
+                </div>
+
+
+                <div class="process-line"></div>
+
+
+                <div class="process-item">
+
+                    <div class="process-number">
+                        02
+                    </div>
+
+                    <div class="process-icon">
+                        🔍
+                    </div>
+
+                    <h3>
+                        Understand
+                    </h3>
+
+                    <p>
+                        Understand project working,
+                        results and limitations.
+                    </p>
+
+                </div>
+
+
+                <div class="process-line"></div>
+
+
+                <div class="process-item">
+
+                    <div class="process-number">
+                        03
+                    </div>
+
+                    <div class="process-icon">
+                        🤖
+                    </div>
+
+                    <h3>
+                        Analyze
+                    </h3>
+
+                    <p>
+                        Ask Campus AI engineering
+                        questions.
+                    </p>
+
+                </div>
+
+
+                <div class="process-line"></div>
+
+
+                <div class="process-item">
+
+                    <div class="process-number">
+                        04
+                    </div>
+
+                    <div class="process-icon">
+                        💡
+                    </div>
+
+                    <h3>
+                        Innovate
+                    </h3>
+
+                    <p>
+                        Develop improved and
+                        new project ideas.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="footer-brand">
+
+            🎓
+
+            <strong>
+                Campus Memory AI
+            </strong>
+
+        </div>
+
+
+        <div class="footer-text">
+
+            Learn from yesterday.
+            Build better tomorrow.
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

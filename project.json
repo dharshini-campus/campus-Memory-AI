@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Water Level Indicator",
+    "department": "EEE",
+    "year": "2025",
+    "description": "A system for detecting and indicating different water levels in a tank.",
+    "objective": "To monitor water level and provide an alert when the tank reaches a specific level.",
+    "technology": "Water sensor, BC547 transistor, LEDs, buzzer, relay",
+    "working": "The water sensor detects the water level. Based on the level, the control circuit activates the corresponding LED and buzzer.",
+    "result": "The system successfully indicates the water level and provides an overflow alert.",
+    "limitations": [
+      "No mobile notification",
+      "No remote monitoring",
+      "No automatic pump control"
+    ],
+    "improvements": [
+      "IoT-based monitoring",
+      "Mobile notification",
+      "Automatic pump control",
+      "Water usage history"
+    ]
+  },
+  {
+    "title": "Gas Leakage Detection",
+    "department": "EEE",
+    "year": "2025",
+    "description": "A safety system that detects gas leakage and provides an alert.",
+    "objective": "To detect gas leakage early and alert users to improve safety.",
+    "technology": "ESP32, Gas Sensor, Buzzer, LED, IoT",
+    "working": "The gas sensor continuously monitors the gas level. When the level crosses the threshold, the ESP32 activates the alarm.",
+    "result": "The system detects gas leakage and provides an immediate warning.",
+    "limitations": [
+      "No automatic ventilation",
+      "Limited data storage",
+      "Basic alert system"
+    ],
+    "improvements": [
+      "Automatic exhaust fan",
+      "Mobile notification",
+      "Cloud monitoring",
+      "Real-time gas data analysis"
+    ]
+  },
+  {
+    "title": "Smart Home Automation",
+    "department": "EEE",
+    "year": "2024",
+    "description": "An IoT-based system for controlling electrical appliances automatically.",
+    "objective": "To reduce manual effort and improve energy management.",
+    "technology": "ESP32, Relay Module, Sensors, Wi-Fi",
+    "working": "Sensors collect information and the ESP32 controls connected appliances through relay modules.",
+    "result": "Electrical appliances can be controlled automatically using the system.",
+    "limitations": [
+      "Limited number of appliances",
+      "Basic automation rules",
+      "No detailed energy analysis"
+    ],
+    "improvements": [
+      "AI-based automation",
+      "Energy consumption monitoring",
+      "Mobile application",
+      "Voice control"
+    ]
+  }
+]
