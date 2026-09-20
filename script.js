@@ -1,6 +1,7 @@
 /* =========================================================
    CAMPUS MEMORY AI
    FINAL SCRIPT
+   SERVER-SIDE ADMIN AUTHENTICATION VERSION
 ========================================================= */
 
 
@@ -12,135 +13,94 @@ let projects = [
 
     {
         id: "default-water-level",
-
         title: "Water Level Indicator",
-
         department: "EEE",
-
         year: "2025",
-
         teamMembers: "",
-
         guide: "",
-
         description:
             "A system for detecting and indicating different water levels in a tank.",
-
         objective:
             "To monitor water level and provide an alert when the tank reaches a specific level.",
-
         technology:
             "Water sensor, BC547 transistor, LEDs, buzzer, relay",
-
         working:
             "The water sensor detects the water level. Based on the detected level, the control circuit activates the corresponding LED and buzzer.",
-
         result:
             "The system successfully indicates the water level and provides an overflow alert.",
-
         limitations: [
             "No mobile notification",
             "No remote monitoring",
             "No automatic pump control"
         ],
-
         improvements: [
             "IoT-based monitoring",
             "Mobile notification",
             "Automatic pump control",
             "Water usage history"
         ],
-
         reportFileName: ""
     },
 
-
     {
         id: "default-gas-leakage",
-
         title: "Gas Leakage Detection",
-
         department: "EEE",
-
         year: "2025",
-
         teamMembers: "",
-
         guide: "",
-
         description:
             "A safety system that detects gas leakage and provides an alert.",
-
         objective:
             "To detect gas leakage early and alert users to improve safety.",
-
         technology:
             "ESP32, Gas Sensor, Buzzer, LED, IoT",
-
         working:
             "The gas sensor continuously monitors the gas level. When the level crosses the threshold, the ESP32 activates the alarm.",
-
         result:
             "The system detects gas leakage and provides an immediate warning.",
-
         limitations: [
             "No automatic ventilation",
             "Limited data storage",
             "Basic alert system"
         ],
-
         improvements: [
             "Automatic exhaust fan",
             "Mobile notification",
             "Cloud monitoring",
             "Real-time gas data analysis"
         ],
-
         reportFileName: ""
     },
 
-
     {
         id: "default-smart-home",
-
         title: "Smart Home Automation",
-
         department: "EEE",
-
         year: "2024",
-
         teamMembers: "",
-
         guide: "",
-
         description:
             "An IoT-based system for controlling electrical appliances automatically.",
-
         objective:
             "To reduce manual effort and improve energy management.",
-
         technology:
             "ESP32, Relay Module, Sensors, Wi-Fi",
-
         working:
             "Sensors collect information and the ESP32 controls connected appliances through relay modules.",
-
         result:
             "Electrical appliances can be controlled automatically using the system.",
-
         limitations: [
             "Limited number of appliances",
             "Basic automation rules",
             "No detailed energy analysis"
         ],
-
         improvements: [
             "AI-based automation",
             "Energy consumption monitoring",
             "Mobile application",
             "Voice control"
         ],
-
         reportFileName: ""
     }
 
@@ -154,13 +114,11 @@ let projects = [
 const savedProjects =
     localStorage.getItem("campusProjects");
 
-
 if (savedProjects) {
 
     try {
 
-        projects =
-            JSON.parse(savedProjects);
+        projects = JSON.parse(savedProjects);
 
     } catch (error) {
 
@@ -223,7 +181,6 @@ function showProjectsPage() {
                 and learn from their work.
             </p>
 
-
             <input
                 type="text"
                 id="projectSearch"
@@ -239,9 +196,7 @@ function showProjectsPage() {
                 "
             >
 
-
             <div id="projectList"></div>
-
 
             <button onclick="goHome()">
                 ← Back to Home
@@ -250,7 +205,6 @@ function showProjectsPage() {
         </div>
 
     `;
-
 
     displayProjects(projects);
 
@@ -266,18 +220,14 @@ function displayProjects(list) {
     const projectList =
         document.getElementById("projectList");
 
-
     if (!projectList) return;
-
 
     if (list.length === 0) {
 
         projectList.innerHTML = `
 
             <div class="ai-message">
-
                 No projects found.
-
             </div>
 
         `;
@@ -286,14 +236,12 @@ function displayProjects(list) {
 
     }
 
-
     projectList.innerHTML =
 
         list.map(project => {
 
             const index =
                 projects.indexOf(project);
-
 
             return `
 
@@ -309,23 +257,19 @@ function displayProjects(list) {
                         ${escapeHTML(project.title)}
                     </h2>
 
-
                     <p>
                         <b>Department:</b>
                         ${escapeHTML(project.department || "")}
                     </p>
-
 
                     <p>
                         <b>Year:</b>
                         ${escapeHTML(project.year || "")}
                     </p>
 
-
                     <p>
                         ${escapeHTML(project.description || "")}
                     </p>
-
 
                     <button
                         onclick="viewProject(${index})"
@@ -351,15 +295,12 @@ function searchProjects() {
     const input =
         document.getElementById("projectSearch");
 
-
     if (!input) return;
-
 
     const search =
         input.value
             .toLowerCase()
             .trim();
-
 
     const filtered =
         projects.filter(project => {
@@ -386,7 +327,6 @@ function searchProjects() {
 
         });
 
-
     displayProjects(filtered);
 
 }
@@ -401,9 +341,7 @@ function viewProject(index) {
     const project =
         projects[index];
 
-
     if (!project) return;
-
 
     document.body.innerHTML = `
 
@@ -413,12 +351,10 @@ function viewProject(index) {
                 📘 ${escapeHTML(project.title)}
             </h1>
 
-
             <div
                 class="chat-box"
                 style="height:auto;"
             >
-
 
                 <h3>🎯 Objective</h3>
 
@@ -429,7 +365,6 @@ function viewProject(index) {
                     )}
                 </p>
 
-
                 <h3>⚙️ Technology / Components</h3>
 
                 <p>
@@ -438,7 +373,6 @@ function viewProject(index) {
                         "Not provided."
                     )}
                 </p>
-
 
                 <h3>🔧 Working</h3>
 
@@ -449,7 +383,6 @@ function viewProject(index) {
                     )}
                 </p>
 
-
                 <h3>✅ Result</h3>
 
                 <p>
@@ -458,7 +391,6 @@ function viewProject(index) {
                         "Not provided."
                     )}
                 </p>
-
 
                 <h3>⚠️ Limitations</h3>
 
@@ -473,7 +405,6 @@ function viewProject(index) {
                         .join("")}
 
                 </ul>
-
 
                 <h3>💡 Possible Improvements</h3>
 
@@ -490,7 +421,6 @@ function viewProject(index) {
                 </ul>
 
             </div>
-
 
             ${
                 project.reportFileName
@@ -510,6 +440,7 @@ function viewProject(index) {
                 <div class="ai-message">
 
                     📄 Full Project Report
+
                     <br><br>
 
                     Report has not been uploaded
@@ -519,20 +450,17 @@ function viewProject(index) {
                 `
             }
 
-
             <button
                 onclick="askAIForProject(${index})"
             >
                 🤖 Ask Campus AI About This Project
             </button>
 
-
             <button
                 onclick="showProjectsPage()"
             >
                 ← Back to Projects
             </button>
-
 
             <button onclick="goHome()">
                 🏠 Home
@@ -554,9 +482,7 @@ function viewProjectReport(index) {
     const project =
         projects[index];
 
-
     if (!project) return;
-
 
     if (!project.reportFileName) {
 
@@ -568,13 +494,11 @@ function viewProjectReport(index) {
 
     }
 
-
     const url =
         "/api/project-report/" +
         encodeURIComponent(
             project.reportFileName
         );
-
 
     window.open(
         url,
@@ -593,15 +517,12 @@ function askAIForProject(index) {
     const project =
         projects[index];
 
-
     if (!project) return;
-
 
     sessionStorage.setItem(
         "selectedProjectIndex",
         index
     );
-
 
     askCampusAI(index);
 
@@ -624,7 +545,6 @@ function askCampusAI(selectedIndex = null) {
                 "selectedProjectIndex"
             );
 
-
         if (stored !== null) {
 
             selectedIndex =
@@ -633,7 +553,6 @@ function askCampusAI(selectedIndex = null) {
         }
 
     }
-
 
     const selectedProject =
         (
@@ -645,7 +564,6 @@ function askCampusAI(selectedIndex = null) {
             :
             null;
 
-
     document.body.innerHTML = `
 
         <div class="chat-container">
@@ -653,7 +571,6 @@ function askCampusAI(selectedIndex = null) {
             <h1>
                 🤖 Campus AI Assistant
             </h1>
-
 
             ${
                 selectedProject
@@ -695,7 +612,6 @@ function askCampusAI(selectedIndex = null) {
                 `
             }
 
-
             <div
                 id="chatBox"
                 class="chat-box"
@@ -726,7 +642,6 @@ function askCampusAI(selectedIndex = null) {
 
             </div>
 
-
             <div class="input-area">
 
                 <input
@@ -736,7 +651,6 @@ function askCampusAI(selectedIndex = null) {
                     onkeydown="handleEnter(event)"
                 >
 
-
                 <button
                     onclick="sendQuestion()"
                 >
@@ -744,7 +658,6 @@ function askCampusAI(selectedIndex = null) {
                 </button>
 
             </div>
-
 
             <button onclick="goHome()">
                 ← Back to Home
@@ -766,7 +679,6 @@ function clearSelectedProject() {
     sessionStorage.removeItem(
         "selectedProjectIndex"
     );
-
 
     askCampusAI(null);
 
@@ -797,20 +709,15 @@ async function sendQuestion() {
     const input =
         document.getElementById("userInput");
 
-
     if (!input) return;
-
 
     const question =
         input.value.trim();
 
-
     if (!question) return;
-
 
     const chatBox =
         document.getElementById("chatBox");
-
 
     chatBox.innerHTML += `
 
@@ -822,14 +729,11 @@ async function sendQuestion() {
 
     `;
 
-
     input.value = "";
-
 
     const thinkingId =
         "thinking-" +
         Date.now();
-
 
     chatBox.innerHTML += `
 
@@ -842,10 +746,8 @@ async function sendQuestion() {
 
     `;
 
-
     chatBox.scrollTop =
         chatBox.scrollHeight;
-
 
     try {
 
@@ -854,15 +756,12 @@ async function sendQuestion() {
                 "selectedProjectIndex"
             );
 
-
         let selectedProject = null;
-
 
         if (stored !== null) {
 
             const index =
                 Number(stored);
-
 
             if (projects[index]) {
 
@@ -872,7 +771,6 @@ async function sendQuestion() {
             }
 
         }
-
 
         const response =
             await fetch(
@@ -899,19 +797,15 @@ async function sendQuestion() {
                 }
             );
 
-
         const data =
             await response.json();
-
 
         const thinkingMessage =
             document.getElementById(
                 thinkingId
             );
 
-
         if (!thinkingMessage) return;
-
 
         if (!response.ok) {
 
@@ -928,13 +822,11 @@ async function sendQuestion() {
 
         }
 
-
         thinkingMessage.innerHTML =
             formatAIResponse(
                 data.answer ||
                 "No answer was generated."
             );
-
 
     } catch (error) {
 
@@ -943,12 +835,10 @@ async function sendQuestion() {
             error
         );
 
-
         const thinkingMessage =
             document.getElementById(
                 thinkingId
             );
-
 
         if (thinkingMessage) {
 
@@ -958,15 +848,13 @@ async function sendQuestion() {
 
                 <br><br>
 
-                Please make sure the Node.js
-                server is running.
+                Please try again.
 
             `;
 
         }
 
     }
-
 
     chatBox.scrollTop =
         chatBox.scrollHeight;
@@ -981,7 +869,6 @@ async function sendQuestion() {
 function formatAIResponse(text) {
 
     if (!text) return "";
-
 
     return escapeHTML(text)
         .replace(/\n\n/g, "<br><br>")
@@ -1004,7 +891,6 @@ function escapeHTML(value) {
         return "";
 
     }
-
 
     return String(value)
 
@@ -1035,7 +921,6 @@ function adminLogin() {
                 👨‍💼 Admin Login
             </h1>
 
-
             <div
                 class="chat-box"
                 style="height:auto;"
@@ -1045,25 +930,21 @@ function adminLogin() {
                     Username
                 </label>
 
-
                 <input
                     type="text"
                     id="adminUsername"
                     placeholder="Enter username"
                 >
 
-
                 <label>
                     Password
                 </label>
-
 
                 <input
                     type="password"
                     id="adminPassword"
                     placeholder="Enter password"
                 >
-
 
                 <button
                     onclick="checkAdminLogin()"
@@ -1072,7 +953,6 @@ function adminLogin() {
                 </button>
 
             </div>
-
 
             <button onclick="goHome()">
                 ← Back to Home
@@ -1087,33 +967,101 @@ function adminLogin() {
 
 /* =========================================================
    CHECK ADMIN LOGIN
+   SERVER-SIDE AUTHENTICATION
 ========================================================= */
 
-function checkAdminLogin() {
+async function checkAdminLogin() {
 
-    const username =
+    const usernameElement =
         document.getElementById(
             "adminUsername"
-        ).value.trim();
+        );
 
-
-    const password =
+    const passwordElement =
         document.getElementById(
             "adminPassword"
-        ).value;
+        );
 
+    if (!usernameElement || !passwordElement) {
 
-    if (
-        username === "admin" &&
-        password === "admin123"
-    ) {
+        return;
+
+    }
+
+    const username =
+        usernameElement.value.trim();
+
+    const password =
+        passwordElement.value;
+
+    if (!username || !password) {
+
+        alert(
+            "Please enter username and password."
+        );
+
+        return;
+
+    }
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/admin/login",
+                {
+
+                    method: "POST",
+
+                    credentials: "include",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+
+                        username:
+                            username,
+
+                        password:
+                            password
+
+                    })
+
+                }
+            );
+
+        const data =
+            await response.json();
+
+        if (!response.ok) {
+
+            alert(
+                data.error ||
+                "Invalid username or password."
+            );
+
+            return;
+
+        }
+
+        alert(
+            "✅ Admin login successful."
+        );
 
         showAdminDashboard();
 
-    } else {
+    } catch (error) {
+
+        console.error(
+            "Admin login error:",
+            error
+        );
 
         alert(
-            "Invalid username or password."
+            "Could not connect to the server."
         );
 
     }
@@ -1122,10 +1070,92 @@ function checkAdminLogin() {
 
 
 /* =========================================================
+   ADMIN SESSION CHECK
+========================================================= */
+
+async function checkAdminSession() {
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/admin/check",
+                {
+                    method: "GET",
+                    credentials: "include"
+                }
+            );
+
+        return response.ok;
+
+    } catch (error) {
+
+        console.error(
+            "Admin session check error:",
+            error
+        );
+
+        return false;
+
+    }
+
+}
+
+
+/* =========================================================
+   ADMIN LOGOUT
+========================================================= */
+
+async function adminLogout() {
+
+    try {
+
+        await fetch(
+            "/api/admin/logout",
+            {
+                method: "POST",
+                credentials: "include"
+            }
+        );
+
+    } catch (error) {
+
+        console.error(
+            "Logout error:",
+            error
+        );
+
+    }
+
+    sessionStorage.removeItem(
+        "selectedProjectIndex"
+    );
+
+    goHome();
+
+}
+
+
+/* =========================================================
    ADMIN DASHBOARD
 ========================================================= */
 
-function showAdminDashboard() {
+async function showAdminDashboard() {
+
+    const authenticated =
+        await checkAdminSession();
+
+    if (!authenticated) {
+
+        alert(
+            "Admin session expired. Please login again."
+        );
+
+        adminLogin();
+
+        return;
+
+    }
 
     document.body.innerHTML = `
 
@@ -1135,11 +1165,6 @@ function showAdminDashboard() {
                 👨‍💼 Admin Dashboard
             </h1>
 
-
-            <!-- =========================================
-                 ADD NEW PROJECT
-            ========================================== -->
-
             <div
                 class="chat-box"
                 style="height:auto;"
@@ -1148,7 +1173,6 @@ function showAdminDashboard() {
                 <h2>
                     📚 Add New Project
                 </h2>
-
 
                 <label>
                     Project Title
@@ -1160,7 +1184,6 @@ function showAdminDashboard() {
                     placeholder="Enter project title"
                 >
 
-
                 <label>
                     Department
                 </label>
@@ -1170,7 +1193,6 @@ function showAdminDashboard() {
                     id="projectDepartment"
                     placeholder="Example: EEE"
                 >
-
 
                 <label>
                     Year
@@ -1182,7 +1204,6 @@ function showAdminDashboard() {
                     placeholder="Example: 2026"
                 >
 
-
                 <label>
                     Team Members
                 </label>
@@ -1191,7 +1212,6 @@ function showAdminDashboard() {
                     id="teamMembers"
                     placeholder="Enter team members"
                 ></textarea>
-
 
                 <label>
                     Guide Name
@@ -1203,7 +1223,6 @@ function showAdminDashboard() {
                     placeholder="Enter guide name"
                 >
 
-
                 <label>
                     Problem Statement
                 </label>
@@ -1212,7 +1231,6 @@ function showAdminDashboard() {
                     id="problemStatement"
                     placeholder="Enter problem statement"
                 ></textarea>
-
 
                 <label>
                     Objective
@@ -1223,7 +1241,6 @@ function showAdminDashboard() {
                     placeholder="Enter objective"
                 ></textarea>
 
-
                 <label>
                     Technology / Components
                 </label>
@@ -1232,7 +1249,6 @@ function showAdminDashboard() {
                     id="technology"
                     placeholder="Enter technologies/components"
                 ></textarea>
-
 
                 <label>
                     Working
@@ -1243,7 +1259,6 @@ function showAdminDashboard() {
                     placeholder="Explain project working"
                 ></textarea>
 
-
                 <label>
                     Result
                 </label>
@@ -1252,7 +1267,6 @@ function showAdminDashboard() {
                     id="result"
                     placeholder="Enter project result"
                 ></textarea>
-
 
                 <label>
                     Limitations
@@ -1263,7 +1277,6 @@ function showAdminDashboard() {
                     placeholder="Enter limitations separated by commas"
                 ></textarea>
 
-
                 <label>
                     Possible Improvements
                 </label>
@@ -1272,7 +1285,6 @@ function showAdminDashboard() {
                     id="improvements"
                     placeholder="Enter improvements separated by commas"
                 ></textarea>
-
 
                 <label>
                     Project Report (Optional)
@@ -1284,9 +1296,7 @@ function showAdminDashboard() {
                     accept=".pdf"
                 >
 
-
                 <br><br>
-
 
                 <button
                     onclick="submitProject()"
@@ -1295,11 +1305,6 @@ function showAdminDashboard() {
                 </button>
 
             </div>
-
-
-            <!-- =========================================
-                 EXISTING PROJECT MANAGEMENT
-            ========================================== -->
 
             <div
                 class="chat-box"
@@ -1310,17 +1315,20 @@ function showAdminDashboard() {
                     🗂️ Manage Existing Projects
                 </h2>
 
-
                 <p>
                     Select an existing project to
                     add/update its report or delete it.
                 </p>
 
-
                 <div id="adminProjectList"></div>
 
             </div>
 
+            <button
+                onclick="adminLogout()"
+            >
+                🚪 Logout
+            </button>
 
             <button onclick="goHome()">
                 🏠 Home
@@ -1329,7 +1337,6 @@ function showAdminDashboard() {
         </div>
 
     `;
-
 
     displayAdminProjects();
 
@@ -1347,18 +1354,14 @@ function displayAdminProjects() {
             "adminProjectList"
         );
 
-
     if (!container) return;
-
 
     if (projects.length === 0) {
 
         container.innerHTML = `
 
             <div class="ai-message">
-
                 No projects available.
-
             </div>
 
         `;
@@ -1366,7 +1369,6 @@ function displayAdminProjects() {
         return;
 
     }
-
 
     container.innerHTML =
 
@@ -1388,7 +1390,6 @@ function displayAdminProjects() {
                         )}
                     </h3>
 
-
                     <p>
                         <b>Department:</b>
                         ${escapeHTML(
@@ -1396,14 +1397,12 @@ function displayAdminProjects() {
                         )}
                     </p>
 
-
                     <p>
                         <b>Year:</b>
                         ${escapeHTML(
                             project.year || ""
                         )}
                     </p>
-
 
                     <p>
                         <b>Report:</b>
@@ -1418,7 +1417,6 @@ function displayAdminProjects() {
 
                     </p>
 
-
                     <button
                         onclick="addOrUpdateReport(${index})"
                     >
@@ -1431,7 +1429,6 @@ function displayAdminProjects() {
                             "Add Report"
                         }
                     </button>
-
 
                     <button
                         onclick="deleteProject(${index})"
@@ -1457,9 +1454,7 @@ function addOrUpdateReport(index) {
     const project =
         projects[index];
 
-
     if (!project) return;
-
 
     document.body.innerHTML = `
 
@@ -1468,7 +1463,6 @@ function addOrUpdateReport(index) {
             <h1>
                 📎 Add / Update Project Report
             </h1>
-
 
             <div
                 class="ai-message"
@@ -1481,7 +1475,6 @@ function addOrUpdateReport(index) {
                     )}
                 </h2>
 
-
                 <p>
                     Department:
                     ${escapeHTML(
@@ -1490,7 +1483,6 @@ function addOrUpdateReport(index) {
                 </p>
 
             </div>
-
 
             <div
                 class="chat-box"
@@ -1501,16 +1493,13 @@ function addOrUpdateReport(index) {
                     Select Project Report PDF
                 </label>
 
-
                 <input
                     type="file"
                     id="existingProjectReport"
                     accept=".pdf"
                 >
 
-
                 <br><br>
-
 
                 <button
                     onclick="uploadReportForExistingProject(${index})"
@@ -1526,7 +1515,6 @@ function addOrUpdateReport(index) {
                 </button>
 
             </div>
-
 
             <button
                 onclick="showAdminDashboard()"
@@ -1550,15 +1538,27 @@ async function uploadReportForExistingProject(index) {
     const project =
         projects[index];
 
-
     if (!project) return;
 
+    const authenticated =
+        await checkAdminSession();
+
+    if (!authenticated) {
+
+        alert(
+            "Admin session expired. Please login again."
+        );
+
+        adminLogin();
+
+        return;
+
+    }
 
     const input =
         document.getElementById(
             "existingProjectReport"
         );
-
 
     if (
         !input ||
@@ -1574,26 +1574,34 @@ async function uploadReportForExistingProject(index) {
 
     }
 
-
     const file =
         input.files[0];
 
+    if (
+        file.type !== "application/pdf" &&
+        !file.name.toLowerCase().endsWith(".pdf")
+    ) {
+
+        alert(
+            "Please select a PDF file."
+        );
+
+        return;
+
+    }
 
     const formData =
         new FormData();
-
 
     formData.append(
         "pdf",
         file
     );
 
-
     formData.append(
         "projectId",
         String(project.id)
     );
-
 
     if (project.reportFileName) {
 
@@ -1604,7 +1612,6 @@ async function uploadReportForExistingProject(index) {
 
     }
 
-
     try {
 
         const response =
@@ -1612,14 +1619,25 @@ async function uploadReportForExistingProject(index) {
                 "/api/project-report/upload",
                 {
                     method: "POST",
+                    credentials: "include",
                     body: formData
                 }
             );
 
-
         const data =
             await response.json();
 
+        if (response.status === 401) {
+
+            alert(
+                "Admin session expired. Please login again."
+            );
+
+            adminLogin();
+
+            return;
+
+        }
 
         if (!response.ok) {
 
@@ -1632,26 +1650,23 @@ async function uploadReportForExistingProject(index) {
 
         }
 
-
         project.reportFileName =
             data.fileName;
 
-
         saveProjects();
-
 
         alert(
             "✅ Project report added/updated successfully."
         );
 
-
         showAdminDashboard();
-
 
     } catch (error) {
 
-        console.error(error);
-
+        console.error(
+            "Report upload error:",
+            error
+        );
 
         alert(
             "Report upload failed: " +
@@ -1669,83 +1684,85 @@ async function uploadReportForExistingProject(index) {
 
 async function submitProject() {
 
+    const authenticated =
+        await checkAdminSession();
+
+    if (!authenticated) {
+
+        alert(
+            "Admin session expired. Please login again."
+        );
+
+        adminLogin();
+
+        return;
+
+    }
+
     const title =
         document.getElementById(
             "projectTitle"
         ).value.trim();
-
 
     const department =
         document.getElementById(
             "projectDepartment"
         ).value.trim();
 
-
     const year =
         document.getElementById(
             "projectYear"
         ).value.trim();
-
 
     const teamMembers =
         document.getElementById(
             "teamMembers"
         ).value.trim();
 
-
     const guide =
         document.getElementById(
             "guideName"
         ).value.trim();
-
 
     const description =
         document.getElementById(
             "problemStatement"
         ).value.trim();
 
-
     const objective =
         document.getElementById(
             "objective"
         ).value.trim();
-
 
     const technology =
         document.getElementById(
             "technology"
         ).value.trim();
 
-
     const working =
         document.getElementById(
             "working"
         ).value.trim();
-
 
     const result =
         document.getElementById(
             "result"
         ).value.trim();
 
-
     const limitationsText =
         document.getElementById(
             "limitations"
         ).value.trim();
-
 
     const improvementsText =
         document.getElementById(
             "improvements"
         ).value.trim();
 
-
     const reportInput =
         document.getElementById(
             "projectReport"
         );
-
 
     const reportFile =
         reportInput &&
@@ -1754,7 +1771,6 @@ async function submitProject() {
             reportInput.files[0]
             :
             null;
-
 
     if (!title) {
 
@@ -1766,7 +1782,6 @@ async function submitProject() {
 
     }
 
-
     if (!department) {
 
         alert(
@@ -1777,7 +1792,6 @@ async function submitProject() {
 
     }
 
-
     if (!year) {
 
         alert(
@@ -1787,7 +1801,6 @@ async function submitProject() {
         return;
 
     }
-
 
     const newProject = {
 
@@ -1854,7 +1867,6 @@ async function submitProject() {
 
     };
 
-
     try {
 
         /* =========================================
@@ -1863,35 +1875,56 @@ async function submitProject() {
 
         if (reportFile) {
 
+            if (
+                reportFile.type !== "application/pdf" &&
+                !reportFile.name.toLowerCase().endsWith(".pdf")
+            ) {
+
+                alert(
+                    "Please select a PDF file."
+                );
+
+                return;
+
+            }
+
             const formData =
                 new FormData();
-
 
             formData.append(
                 "pdf",
                 reportFile
             );
 
-
             formData.append(
                 "projectId",
                 String(newProject.id)
             );
-
 
             const response =
                 await fetch(
                     "/api/project-report/upload",
                     {
                         method: "POST",
+                        credentials: "include",
                         body: formData
                     }
                 );
 
-
             const data =
                 await response.json();
 
+            if (response.status === 401) {
+
+                alert(
+                    "Admin session expired. Please login again."
+                );
+
+                adminLogin();
+
+                return;
+
+            }
 
             if (!response.ok) {
 
@@ -1904,12 +1937,10 @@ async function submitProject() {
 
             }
 
-
             newProject.reportFileName =
                 data.fileName;
 
         }
-
 
         /* =========================================
            SAVE PROJECT
@@ -1919,17 +1950,13 @@ async function submitProject() {
             newProject
         );
 
-
         saveProjects();
-
 
         alert(
             "✅ New project submitted successfully!"
         );
 
-
         showAdminDashboard();
-
 
     } catch (error) {
 
@@ -1937,7 +1964,6 @@ async function submitProject() {
             "Submit project error:",
             error
         );
-
 
         alert(
             "Project submission failed: " +
@@ -1958,9 +1984,22 @@ async function deleteProject(index) {
     const project =
         projects[index];
 
-
     if (!project) return;
 
+    const authenticated =
+        await checkAdminSession();
+
+    if (!authenticated) {
+
+        alert(
+            "Admin session expired. Please login again."
+        );
+
+        adminLogin();
+
+        return;
+
+    }
 
     const confirmation =
         confirm(
@@ -1970,13 +2009,11 @@ async function deleteProject(index) {
             "The project and its uploaded report will be removed."
         );
 
-
     if (!confirmation) {
 
         return;
 
     }
-
 
     try {
 
@@ -1986,6 +2023,8 @@ async function deleteProject(index) {
                 {
 
                     method: "POST",
+
+                    credentials: "include",
 
                     headers: {
                         "Content-Type":
@@ -2006,10 +2045,20 @@ async function deleteProject(index) {
                 }
             );
 
-
         const data =
             await response.json();
 
+        if (response.status === 401) {
+
+            alert(
+                "Admin session expired. Please login again."
+            );
+
+            adminLogin();
+
+            return;
+
+        }
 
         if (!response.ok) {
 
@@ -2022,25 +2071,18 @@ async function deleteProject(index) {
 
         }
 
-
-        /* Remove from local projects */
-
         projects.splice(
             index,
             1
         );
 
-
         saveProjects();
-
 
         alert(
             "✅ Project deleted successfully."
         );
 
-
         showAdminDashboard();
-
 
     } catch (error) {
 
@@ -2048,7 +2090,6 @@ async function deleteProject(index) {
             "Delete project error:",
             error
         );
-
 
         alert(
             "Project deletion failed: " +
