@@ -1892,7 +1892,7 @@ async function submitProject() {
                 new FormData();
 
             formData.append(
-                "pdf",
+                "report",
                 reportFile
             );
 
