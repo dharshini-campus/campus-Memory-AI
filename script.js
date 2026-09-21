@@ -1594,7 +1594,7 @@ async function uploadReportForExistingProject(index) {
         new FormData();
 
     formData.append(
-        "pdf",
+        "report",
         file
     );
 
